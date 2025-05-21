@@ -1,0 +1,29 @@
+from itertools import permutations, product
+
+def generate_permutations(data, repetition):
+    if repetition:
+        return list(product(data, repeat=len(data)))
+    else:
+        return list(permutations(data))
+
+if __name__ == "__main__":
+    # Taking input as space-separated digits
+    data = list(map(int, input("Enter all elements of the set separated by space: ").split()))
+    
+    # Generate permutations
+    with_repetition = generate_permutations(data, repetition=True)
+    without_repetition = generate_permutations(data, repetition=False)
+    
+    # Display results
+    print("\nPermutations with repetition:")
+    for perm in with_repetition:
+        print(perm)
+    
+    print("\nPermutations without repetition:")
+    for perm in without_repetition:
+        print(perm)
+    
+    # Display counts
+    print("\nTotal permutations:")
+    print("With repetition:", len(with_repetition))
+    print("Without repetition:", len(without_repetition))
