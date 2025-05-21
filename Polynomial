@@ -1,0 +1,14 @@
+def solve_polynomial():
+    # Input coefficients from highest degree to constant term
+    func = list(map(int, input("Enter your polynomial coefficients separated with space: ").split()))
+    num = int(input("Enter the value of your variable: "))
+    
+    value = 0
+    degree = len(func) - 1
+    
+    for i in range(len(func)):
+        value += func[i] * (num ** (degree - i))
+    
+    return value
+
+print(solve_polynomial())
